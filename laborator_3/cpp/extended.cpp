@@ -5,12 +5,17 @@
 
 using namespace std;
 
-
 struct nodLSI {
     string nume;
     string prenume;
     int age;
     nodLSI *next;
+};
+
+struct cartierNodLSI {
+    nodLSI *persoane;
+    string nume;
+    cartierNodLSI *next;
 };
 
 nodLSI *alocare_nod_LSI(int _age, string nume, string prenume) {
@@ -20,6 +25,13 @@ nodLSI *alocare_nod_LSI(int _age, string nume, string prenume) {
     new_node->prenume = prenume;
     new_node->next = NULL;
     return new_node;
+}
+
+cartierNodLSI *alocare_cartier(string nume) {
+    cartierNodLSI *cartier = new cartierNodLSI;
+    cartier->nume = nume;
+    cartier->next = NULL;
+    cartier->persoane = NULL;
 }
 
 bool empty_list(nodLSI *list) {
@@ -131,16 +143,16 @@ nodLSI *stergere_element(nodLSI *first_node, int n) {
 
 int main() {
 
-    nodLSI *list = NULL; //primul nod in lista
+    nodLSI *cartiere = NULL; //primul nod in lista
 
 
 
     int meniu, submeniu;
     do {
 
-        if (!empty_list(list)) {
+        if (!empty_list(cartiere)) {
             cout << "List : " << endl;
-            citire_lista(list);
+            citire_lista(cartiere);
             cout << endl;
         }
 
@@ -158,7 +170,7 @@ int main() {
             case 0:
                 break;
             case 1: {
-                list = alocare_nod_LSI(10, "Denis", "Chiciudean");
+                cartiere = cartiere("Nazna");
                 cout << "Apelul functiei de initializare / Resetare\n";
                 break;
             }
@@ -291,13 +303,11 @@ int main() {
                     int query;
                     cin >> query;
                     res = cautare(list, by, query, " ");
-
                 } else {
                     string query;
                     cin >> query;
                     res = cautare(list, by, 0, query);
                 }
-
                 break;
             }
             case 5: {
