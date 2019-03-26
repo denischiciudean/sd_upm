@@ -42,7 +42,6 @@ bool empty_list(nodLSI *list) {
 }
 
 void citire_lista(nodLSI *first_node) {
-
     nodLSI *current_node = first_node;
 //    cout << &current_node->next << endl;
     while (current_node != 0) {

@@ -1,4 +1,0 @@
-/Users/denischiciudean/Desktop/Faculta/structuri_de_date/laborator_3/cpp/main.cpp:5:9: fatal error: 'conio.h' file not found
-#include<conio.h>
-        ^~~~~~~~~
-1 error generated.
